@@ -1,15 +1,20 @@
 ﻿#pragma once
-#include <iostream>
-#include "functions.h"
-#include "CustomClass.h"
-#include "DV.h"
-#include "Parabola.h"
-#include "BankAccount.h"
-#include "Rational.h"
-#include "BoolFunction.h"
-#include "IntArray.h"
-#include "Array.h"
-#include "RationalArray.h"
+//#include <iostream>
+//#include "functions.h"
+//#include "CustomClass.h"
+//#include "DV.h"
+//#include "Parabola.h"
+//#include "BankAccount.h"
+//#include "Rational.h"
+//#include "BoolFunction.h"
+//#include "IntArray.h"
+//#include "Array.h"
+//#include "RationalArray.h"
+//#include "RationalMatrix.h"
+#include "Rectangle.h"
+#include "Circle.h"
+#include "TriangleF.h"
+#include "List.h"
 
 //const int M = 10;
 //using namespace std;
@@ -150,13 +155,72 @@
 
 //int main() {
 //	int n; cin >> n;
-//	Array<Rational> arr(n);
-//	for (int i = 0; i < n; i++) {
-//		cin >> arr[i];
-//	}
+//	Array<int> arr(n);
+//	cin >> arr;
+//	Array<int> arr2(n);
+//	cin >> arr2;
 //	cout << arr;
+//	cout << arr*arr2;
 //}
 
-//vector rational * scalar matrix fields: w*h rational[w][h], operations, 
-// создать две матрицы, произведение, след
+//int main() {
+//	int figurecount;
+//	cin >> figurecount;
+//	Figure** figures = new Figure * [figurecount];
+//	double* a;
+//	for (int i = 0; i < figurecount; i++) {
+//		char c; cout << "Enter figure type(c-circle, r-rect, t-triangle): "; cin >> c;
+//		switch (c) {
+//		case 'c':
+//			a = new double[3];
+//			cout << "Enter center coord: ";
+//			cin >> a[0] >> a[1];
+//			cout << "Enter radius: ";
+//			cin >> a[2];
+//			figures[i] = new Circle(a);
+//			delete[] a;
+//			break;
+//		case 'r':
+//			a = new double[4];
+//			cout << "Enter 2 opposite points: ";
+//			for (int i = 0; i < 4; i++) {
+//				cin >> a[i];
+//			}
+//			figures[i] = new Rectangle(a);
+//			delete[] a;
+//			break;
+//		case 't':
+//			cout << "Enter 3 points: ";
+//			a = new double[6];
+//			for (int i = 0; i < 6; i++) {
+//				cin >> a[i];
+//			}
+//			figures[i] = new TriangleF(a);
+//			delete[] a;
+//			break;
+//		}
+//	}
+//	//task 2 3
+//	double minp = figures[0]->perimeter(), maxa = figures[0]->area();
+//	for (int i = 1; i < figurecount; i++) {
+//		double a = figures[i]->perimeter(), b = figures[i]->area();
+//		minp = minp > a ? a : minp; maxa = b > maxa ? b : maxa;
+//	}
+//	cout << "Min perimeter: " << minp << "\nMax area: " << maxa;
+//	for (int i = 0; i < figurecount; i++) delete figures[i]; delete[] figures;
+//}
 
+//int main() {
+//	List<int> a;
+//	cin >> a;
+//	List<double> b;
+//	cin >> b;
+//	a.addBeforeCur(2);
+//	b.next();
+//	b.addAfterCur(3);
+//	cout << a << endl << b;
+//}
+
+int main() {
+
+}

@@ -10,12 +10,19 @@ private:
 	RationalArray* matrix;
 public:
 	RationalMatrix();
-	~RationalMatrix() noexcept;
+	~RationalMatrix();
 	RationalMatrix(const RationalMatrix& other);
-	RationalMatrix(const RationalArray*& other, int n);
-	RationalMatrix(const RationalMatrix&& other) noexcept;
+	RationalMatrix(const RationalArray* other, int n);
+	RationalMatrix(RationalMatrix&& other) noexcept;
 	RationalMatrix& operator=(const RationalMatrix& other);
-	RationalMatrix& operator=(const RationalMatrix&&);
+	RationalMatrix& operator=(RationalMatrix&&) noexcept;
+	RationalMatrix(const int size) {
+		n = size;
+		matrix = new RationalArray[size];
+		for (int i = 0; i < n; i++) {
+			matrix[i] = RationalArray(size);
+		}
+	}
 
 	RationalArray& operator[](int i) const {
 		return matrix[i];
@@ -27,6 +34,5 @@ public:
 	RationalMatrix& operator+=(const RationalMatrix& other);
 
 	RationalMatrix operator*(const RationalMatrix& other) const;
-	RationalMatrix& operator*=(const RationalMatrix& other);
 };
 

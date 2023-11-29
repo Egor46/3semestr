@@ -9,18 +9,20 @@ RationalArray::RationalArray(const RationalArray& a) {
 }
 
 RationalArray& RationalArray::operator=(const RationalArray& other) {
-	length = other.length;
-	for (int i = 0; i < length; i++) arr[i] = other[i];
-	return *this;
-}
-
-RationalArray::RationalArray(RationalArray&& other) : arr(nullptr), length(0)
-{
+	if (this == &other) return *this;
 	length = other.length;
 	arr = new Rational[length];
 	for (int i = 0; i < length; i++) {
-		arr[i] = other[i];
+		arr[i] = other.arr[i];
 	}
+	return *this;
+}
+
+RationalArray::RationalArray(RationalArray&& other) noexcept
+{
+	arr = other.arr;
+	length = other.length;
+	other.arr = nullptr;
 }
 
 RationalArray::RationalArray(Rational* a, int n) {
@@ -31,7 +33,7 @@ RationalArray::RationalArray(Rational* a, int n) {
 	}
 }
 
-RationalArray::~RationalArray() {
+RationalArray::~RationalArray() noexcept{
 	delete[] arr;
 }
 
@@ -53,17 +55,10 @@ RationalArray RationalArray::operator+(const RationalArray& other) const {
 
 RationalArray RationalArray::operator*(const Rational& other) const
 {
-	RationalArray result{ new Rational[length], length };
+	RationalArray result(length);
 	for (int i = 0; i < length; i++) {
 		result[i] = arr[i] * other;
 	}
-	return result;
-}
-
-RationalArray RationalArray::operator*(const Rational& other) const
-{
-	RationalArray result = *this;
-	for (int i = 0; i < length; i++) arr[i] *= other;
 	return result;
 }
 

@@ -1,12 +1,22 @@
 #include "Rational.h"
 
-static int nod(int, int);
-
-void Rational::ease()
+int Rational::NOD() const
 {
-	int C = nod(a, b);
-	a = a / C;
-	b = b / C;
+	int n = a;
+	int d = b;
+	while (n != 0 && d != 0)
+		if (abs(n) > abs(d))
+			n %= d;
+		else
+			d %= n;
+	return n + d;
+}
+
+void Rational::reduce()
+{
+	int nod = NOD();
+	a /= nod;
+	b /= nod;
 }
 
 Rational::Rational()
@@ -19,14 +29,14 @@ Rational::Rational(int _a, int _b)
 {
 	a = _a;
 	b = _b;
-	ease();
+	reduce();
 }
 
 Rational::Rational(const Rational& c)
 {
 	a = c.a;
 	b = c.b;
-	ease();
+	reduce();
 }
 
 Rational& Rational::operator=(const Rational& other)
@@ -84,7 +94,7 @@ Rational& Rational::operator+=(const Rational& c)
 {
 	a = a * c.b + b * c.a;
 	b = b * c.b;
-	ease();
+	reduce();
 	return *this;
 }
 
@@ -101,7 +111,7 @@ Rational Rational::operator-(const Rational& other)
 Rational& Rational::operator-=(const Rational& other) {
 	a -= other.a;
 	b -= other.b;
-	ease();
+	reduce();
 	return *this;
 }
 
@@ -113,7 +123,7 @@ Rational Rational::operator/(const Rational& other)
 Rational& Rational::operator/=(const Rational& other)
 {
 	a *= other.b; b *= other.a;
-	ease();
+	reduce();
 	return *this;
 }
 
@@ -127,27 +137,6 @@ Rational Rational::operator++(int) {
 	Rational n(*this);
 	a += b;
 	return n;
-}
-
-static int nod(int numerator, int denominator)
-{
-	if (numerator < denominator) {
-		int t = numerator;
-		numerator = denominator;
-		denominator = t;
-	}
-	int mult = 0, t;
-	while (denominator) {
-		mult = 0;
-		while (numerator >= denominator) {
-			numerator -= denominator;
-			mult++;
-		}
-		t = numerator;
-		numerator = denominator;
-		denominator = t;
-	}
-	return numerator > 0 ? numerator : 1;
 }
 
 Rational& operator*=(Rational& left, const Rational& right) {

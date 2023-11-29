@@ -10,11 +10,20 @@ private:
 	int length;
 public:
 	RationalArray& operator=(const RationalArray& other);
-	RationalArray& operator=(const RationalArray&& other) = delete;
+	RationalArray& operator=(RationalArray&& other) noexcept {
+		length = other.length;
+		arr = other.arr;
+		other.arr = nullptr;
+		return *this;
+	}
 	RationalArray() { arr = nullptr; length = 0; };
+	RationalArray(int n) {
+		length = n; arr = new Rational[n];
+		//for (int i = 0; i < n; i++) arr[i] = Rational(0, 1);
+	}
 	~RationalArray() noexcept;
 	RationalArray(Rational* a, int n);
-	RationalArray(RationalArray&& other);
+	RationalArray(RationalArray&& other) noexcept;
 	RationalArray(const RationalArray& other);
 
 	int len() const { return length; };
@@ -28,8 +37,5 @@ public:
 	RationalArray& operator*=(const Rational& other);
 	RationalArray operator+(const RationalArray& other) const;
 	RationalArray& operator+=(const RationalArray& other);
-	void deletearr() noexcept{
-		delete[] arr;
-	}
 };
 

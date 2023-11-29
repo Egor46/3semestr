@@ -9,8 +9,9 @@ class Rational
 	friend std::istream& operator>>(std::istream& in, Rational& r);
 	friend std::ostream& operator << (std::ostream& out, const Rational& r);
 private:
+	int NOD() const;
 	int a, b;
-	void ease();
+	void reduce();
 public:
 	Rational();
 	Rational(int _a, int _b);

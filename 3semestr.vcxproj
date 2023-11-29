@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,6 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,35 +132,44 @@
     <ClCompile Include="3semestr.cpp" />
     <ClCompile Include="BankAccount.cpp" />
     <ClCompile Include="BoolFunction.cpp" />
+    <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CustomClass.cpp" />
     <ClCompile Include="Discipline.cpp" />
     <ClCompile Include="DV.cpp" />
     <ClCompile Include="IntArray.cpp" />
     <ClCompile Include="INTEGER.cpp" />
+    <ClCompile Include="List.cpp" />
     <ClCompile Include="Parabola.cpp" />
     <ClCompile Include="Permutation.cpp" />
     <ClCompile Include="Rational.cpp" />
     <ClCompile Include="RationalArray.cpp" />
     <ClCompile Include="RationalMatrix.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Array.cpp" />
+    <ClCompile Include="TriangleF.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BankAccount.h" />
     <ClInclude Include="BoolFunction.h" />
+    <ClInclude Include="Circle.h" />
     <ClInclude Include="CustomClass.h" />
     <ClInclude Include="Discipline.h" />
     <ClInclude Include="DV.h" />
+    <ClInclude Include="Figure.h" />
     <ClInclude Include="functions.h" />
     <ClInclude Include="IntArray.h" />
     <ClInclude Include="INTEGER.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="Parabola.h" />
     <ClInclude Include="Permutation.h" />
     <ClInclude Include="Rational.h" />
     <ClInclude Include="RationalArray.h" />
     <ClInclude Include="RationalMatrix.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Array.h" />
+    <ClInclude Include="TriangleF.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

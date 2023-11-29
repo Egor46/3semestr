@@ -45,11 +45,11 @@ public:
 	}
 
 	Array(const Array<T>&& other) : arr(nullptr), length(0) {
+		if (this == &(other)) return;
 		length = other.length;
 		arr = new T[length];
 		for (int i = 0; i < length; i++) arr[i] = other.arr[i];
 		delete[] other.arr;
-		other.length = 0;
 	}
 
 	Array& operator=(const Array<T>& other) {
